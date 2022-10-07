@@ -33,7 +33,8 @@ User.addScope('defaultScope', {
 User.addScope('withPassword', {
     attributes: {
         include: ['password']
-    }
+    },
+    order: [['createdAt', 'DESC']]
 });
 
 module.exports = User;
