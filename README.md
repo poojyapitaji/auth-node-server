@@ -22,6 +22,7 @@ MYSQL_HOST = localhost
 MYSQL_USER = root
 MYSQL_PASSWORD = 
 MYSQL_DATABASE = cms
+MYSQL_TIMEZONE = 'Asia/Kolkata'
 ```
 
 #### Run server
