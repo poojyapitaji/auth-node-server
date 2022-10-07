@@ -7,7 +7,8 @@ Auth server build using nodejs, express, sequelize, morgan, mysql & jsonwebtoken
 
 #### Creating .env file
 Create .env file and add the following :
-```API_PORT = 3001
+```
+API_PORT = 3001
 ##### Add any origin you want to allow after comma & do not add any space after comma
 ALLOWED_ORIGINS= "http://localhost:3001,https://google.com" 
 ACCESS_TOKEN_SECRET = c9705bb8e4962998fb3eb8e88fa34b346f500394755ba3c366ea3bb052b20b39
