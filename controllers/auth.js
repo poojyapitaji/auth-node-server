@@ -34,7 +34,7 @@ module.exports.login = async (req, res) => {
 
 module.exports.logout = async (req, res) => {
     const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatue(204);
+    if (!cookies?.jwt) return res.sendStatus(204);
     res.clearCookie('jwt', {
         httpOnly: true,
         secure: true,

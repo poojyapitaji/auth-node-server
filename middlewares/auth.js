@@ -16,7 +16,7 @@ exports.login = [
 
 module.exports.loginLimiter = rateLimit({
     windowMS: 60 * 1000, // 1 minutes
-    maz: 5, // Limit each IP to 5 login request per `window` per minute
+    max: 5, // Limit each IP to 5 login request per `window` per minute
     handler: (req, res, next, options) => {
         res.sendStatus(options.statusCode);
     },
