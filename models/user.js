@@ -2,11 +2,12 @@ const Sequelize = require("sequelize");
 const sequelize = require("../config/database");
 
 const User = sequelize.define("users", {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
+    uuid: {
+        type: Sequelize.UUID,
         allowNull: false,
-        primaryKey: true
+        defaultValue: Sequelize.UUIDV4,
+        primaryKey: true,
+        unique: true
     },
     name: {
         type: Sequelize.STRING,
@@ -19,10 +20,19 @@ const User = sequelize.define("users", {
     password: {
         type: Sequelize.STRING,
         allowNull: false,
+    }
+});
+
+User.addScope('defaultScope', {
+    attributes: {
+        exclude: ['password']
     },
-    refreshToken: {
-        type: Sequelize.STRING,
-        allowNull: true,
+    order: [['createdAt', 'DESC']]
+});
+
+User.addScope('withPassword', {
+    attributes: {
+        include: ['password']
     }
 });
 
