@@ -1,4 +1,6 @@
-# Auth Server
+<img src='https://i.ibb.co/5LG7Dj1/logo.png' width='100px'/>
+
+# Auth Node Server
 Auth server build using nodejs, express, sequelize, morgan, mysql & jsonwebtoken.
 
 ## Steps to setup
