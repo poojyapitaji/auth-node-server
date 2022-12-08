@@ -6,15 +6,25 @@ const fs = require('fs');
 const path = require('path');
 const Writable = require('stream').Writable;
 const Log = require('../models/log');
-const { relativeTimeRounding } = require('moment');
 
-class MyStream extends Writable {
+class DBStream extends Writable {
     async write(line) {
         await Log.create({ log: line });
     }
 }
 
-const writer = new MyStream();
+class FileStream extends Writable {
+    write(line) {
+        const dir = path.join(__dirname, '../log');
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
+        fs.appendFileSync(path.join(dir, 'access.log'), line);
+    }
+}
+
+const dbWriter = new DBStream();
+const fileWrite = new FileStream();
 
 const formatDatabase = json({
     'remote-addr': ':remote-addr',
@@ -29,7 +39,7 @@ const formatDatabase = json({
     'response-time': ':response-time ms'
 });
 
-const formatFile = ':id :remote-addr - :remote-user [:date] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"';
+const formatFile = ':id\tREMOTE_ADDRESS/:remote-addr\tREMOTE_USER/:remote-user\t[:date]\tMETHOD/:method\t:url\tSTATUS_CODE/:status\tCONTENT_LENGTH/:res[content-length]\tREFERANCE/:referrer\tUSER_AGENT/:user-agent\tHTTP/:http-version';
 
 morgan.token('id', function getId(req) {
     return req.id
@@ -44,18 +54,19 @@ const logger = (app) => {
     if (!logger_mode) return;
     switch (logger_mode) {
         case 'file':
-            const dir = path.join(__dirname, '../');
             app.use(morgan(formatFile, {
-                stream: fs.createWriteStream(path.join(dir + "/log", 'access.log'), { flag: 'a' }),
+                stream: fileWrite,
                 skip: (req, res) => { return req.originalUrl.startsWith('/log') }
             }));
+            break;
         case 'database':
             app.use(morgan(formatDatabase, {
-                stream: writer,
+                stream: dbWriter,
                 skip: (req, res) => { return req.originalUrl.startsWith('/log') }
             }))
+            break;
         case 'default':
-            app.use(morgan('tiny'));
+            app.use(morgan('short'));
         default:
             return;
     }
