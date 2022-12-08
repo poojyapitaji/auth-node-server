@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const Writable = require('stream').Writable;
 const Log = require('../models/log');
+const { relativeTimeRounding } = require('moment');
 
 class MyStream extends Writable {
     async write(line) {
@@ -36,7 +37,7 @@ morgan.token('id', function getId(req) {
 
 morgan.token('date', () => {
     return moment().tz(process.env.LOGGER_TIMEZONE).format('YYYY-MM-DD HH:mm:ss');
-})
+});
 
 const logger = (app) => {
     const logger_mode = process.env.LOGGER_MODE
@@ -53,6 +54,8 @@ const logger = (app) => {
                 stream: writer,
                 skip: (req, res) => { return req.originalUrl.startsWith('/log') }
             }))
+        case 'default':
+            app.use(morgan('tiny'));
         default:
             return;
     }
