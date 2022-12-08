@@ -3,6 +3,8 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
+const mailService = require('../services/mail');
+const emitter = require('../config/emitter');
 
 module.exports.register = async (req, res) => {
     const errors = validationResult(req);
@@ -30,6 +32,12 @@ module.exports.login = async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000 //should be same as the refresh token expiry
     });
     res.status(200).json({ accessToken });
+    emitter.emit('sendMail',{
+        to: req.body.email,
+        subject: "Login Alert!",
+        template: "user-register",
+        data: { email: req.body.email }
+    })
 }
 
 module.exports.logout = async (req, res) => {
