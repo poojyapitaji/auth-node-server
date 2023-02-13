@@ -27,6 +27,14 @@ MYSQL_USER = root
 MYSQL_PASSWORD = 
 MYSQL_DATABASE = auth
 MYSQL_TIMEZONE = 'Asia/Kolkata'
+
+MAIL_HOST = 
+MAIL_PORT = 465
+MAIL_SECURE = true #true for 465 false for other port
+MAIL_USER = 
+MAIL_PASSWORD = 
+MAIL_FROM_NAME = "Auth Node Server 👻"
+MAIL_FROM_EMAIL = 
 ```
 #### Generate 64 character random string for ACCESS_TOKEN_SECREAT & REFRESH_TOKEN_SECRET
 Open terminal / cmd run the below code two time for both the secrets.
