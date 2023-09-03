@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+
+@keyframes forward-animation {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1;  transform: translateX(0px);}
+}
+
+@keyframes backword-animation {
+    0% { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1;  transform: translateX(0px);}
+}
+
+.forward { 
+    animation-name: forward-animation;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+}
+
+.backword { 
+    animation-name: backword-animation;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    min-width: 300px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -ms-font-smoothing: antialiased;
+}
+
+button:focus{
+    outline: none;
+}
+
+.page-ath-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-ath-content {
+    background: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 40px;
+}
+
+.page-ath-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #231f20;
+    padding-bottom: 40px;
+}
+
+.page-logo {
+    height: 150px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.page-heading {
+    font-size: 28px;
+    font-weight: 900;
+    color: #231f20;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page-description {
+    font-size: 15px;
+    text-align: center;
+    color: #525659;
+}
+
+
+.page-ath-form,
+.page-ath-header,
+.page-ath-footer,
+.page-ath-text {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-ath-form {
+    padding-bottom: 100px;
+    margin-top: 20px;
+}
+
+.page-ath-header {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.page-ath-footer {
+    font-family: 'Roboto', sans-serif;
+    padding-top: 40px;
+}
+.page-ath-footer p{
+    font-size: 15px;
+}
+.page-ath-footer p a{
+    display: inline-block;
+    margin-left: 3px;
+    color: #000;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.page-ath-footer p a:hover{
+    color: #5161ce;
+}
+.auth-part-logo {
+    
+}
+.page-content {
+    margin-left: 260px;
+    transition: all .5s;
+    padding: 15px;
+}
+.page-content.page-active{
+    margin-left: 0px;
+}
+
+
+
+
+/*---------signup-step-------------*/
+.register-form-content{
+    justify-content: center;
+}
+.register-form-content .page-ath-form{
+    padding-bottom: 0px;
+}
+.register-form-content .form-align-box,
+.register-form-content .page-ath-form,
+.register-form-content .wizard,
+.register-form-content .register-wizard-box,
+.register-form-content .tab-content,
+.register-form-content .wizard .tab-pane{
+    height: 100%;
+}
+.register-form-content .page-ath-header{
+    display: none;
+}
+.register-wizard-box .tab-pane h4{
+    margin-top: 0px;
+    font-size: 18px;
+    color: #8e8c8c;
+    margin-bottom: 12px;
+}
+.register-wizard-box .tab-pane h3{
+    font-size: 26px;
+    font-weight: 700;
+    color: #231f20;
+    padding-bottom: 25px;
+}
+
+.wizard {
+    position: relative;
+}
+
+.wizard .tab-content>.active{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.wizard .tab-pane {
+    position: relative;
+    padding-top: 40px;
+}
+
+.wizard-inner {
+    display: none;
+}
+
+.step-btn{
+    background-color: #d5d6d7;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.step-btn i {
+    color: #525659;
+}
+
+.step-btn span{
+    display: inline-block;
+    font-weight: 700;
+    font-size: 16px;
+    color: #525659;
+    letter-spacing: 0.3px;
+}
+.wizard h3 {
+    margin-top: 0;
+}
+.prev-step,
+.next-step{
+    border: none;
+    margin-top: 30px;
+}
+.prev-step span{
+    margin-left: 10px;
+}
+
+.next-step {
+    background-color: #B39A62;
+}
+
+.next-step span{
+    margin-right: 10px;
+    color: white;
+}
+.next-step i {
+    color: #fff;
+}
+
+.form-input-steps .custom-control.custom-checkbox label{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.form-input-steps .custom-control.custom-checkbox label a{
+    display: inline-block;
+    margin-left: 3px;
+    color: #000;
+    font-weight: 600;
+    text-decoration: underline;
+    
+}
+.form-input-steps .custom-control.custom-checkbox label a:hover{
+    color: #5161ce;
+}
+
+.form-control {
+    height: auto;
+    padding: 16px 18px;
+    border-radius: 5px;
+    font-weight: 400;
+    color: #333;
+    border-color: #e4e4e4;
+}
+
+.form-check-label {
+    margin-top: 0.1rem;
+}
+
+.list-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.progress{
+  border-radius: 5px;
+}
+.progress-bar{
+  background-color: #B39A62;
+}

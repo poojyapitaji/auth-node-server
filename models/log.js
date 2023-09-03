@@ -22,6 +22,5 @@ Log.addScope('defaultScope', {
     order: [['createdAt', 'DESC']]
 });
 
-Log.sync();
 
 module.exports = Log;

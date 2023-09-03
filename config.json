@@ -1,0 +1,18 @@
+{
+  "mysql": {
+    "mysqlHost": "localhost",
+    "mysqlUser": "root",
+    "mysqlPassword": "",
+    "mysqlDatabase": "auth"
+  },
+  "nodemailer": {
+    "smtpHost": "",
+    "smtpPort": "465",
+    "smtpUser": "",
+    "smtpPassword": ""
+  },
+  "logger": {
+    "loggerType": "file",
+    "loggerTimezone": "Asia/Kolkata"
+  }
+}

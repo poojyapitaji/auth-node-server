@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Install | Autn Node server</title>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="page-ath-wrap">
+                    <div class="page-ath-content register-form-content">
+                    <img class="page-logo" src="https://camo.githubusercontent.com/b89c972a4b1a1b50b01e83983effcc8151254174a625a0c8eab9324c0fc840c1/68747470733a2f2f692e6962622e636f2f354c4737446a312f6c6f676f2e706e67" alt="logo" />
+                    <h1 class="page-heading">Auth Node Server</h1>
+                    <p class="page-description">Go through the setup to install the auth node server.</p>
+                        <div class="page-ath-form">
+                            <div class="form-align-box">
+                                <div class="wizard">
+                                  <div class="progress" style="height: 30px;">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 25%;">
+                                          Step 1 of 4
+                                        </div>
+                                    </div>
+                                    <form role="form" action="index.html" class="register-wizard-box" autocomplete="off">
+                                        <div class="tab-content" id="main_form">
+                                            <div class="tab-pane active" role="tabpanel" id="step1">
+                                                <div class="form-input-steps">
+                                                    <h4>Server installation</h4>
+                                                    <h3>Database Information</h3>
+                                                    <div class="form-group">
+                                                        <label>Database Host</label>
+                                                        <input type="text" class="form-control" name="DbHost" placeholder="Enter database host url" id="DbHost">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Database Port</label>
+                                                        <input type="text" class="form-control" name="DbPort" placeholder="Enter database port number" value="3306" id="DbPort">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Database Name</label>
+                                                        <input type="text" class="form-control" name="DbName" placeholder="Enter database name" id="DbName">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Database Username</label>
+                                                        <input type="text" class="form-control" name="DbUsername" placeholder="Enter database username" id="DbUsername">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Database Password</label>
+                                                        <input type="password" class="form-control" name="DbPassword" placeholder="Enter database password" id="DbPassword">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline text-right">
+                                                    <li>
+                                                        <button type="button" class="step-btn next-step" data-step="1"><span>Test connection</span><i class="fa fa-chevron-right"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-pane" role="tabpanel" id="step2">
+                                                <div class="form-input-steps">
+                                                    <h4>Server installation</h4>
+                                                    <h3>SMTP Information</h3>
+                                                    <div class="form-group">
+                                                        <label>SMTP Host</label>
+                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP host">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>SMTP Port</label>
+                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP port number" value="465">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>SMTP Username</label>
+                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP username">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>SMTP Password</label>
+                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP password">
+                                                    </div>
+                                                     
+                                                     
+                                                </div>
+                                                <ul class="list-inline text-right">
+                                                    <li>
+                                                        <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="button" class="step-btn next-step" data-step="2"><span>Next</span><i class="fa fa-chevron-right"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-pane" role="tabpanel" id="step3">
+                                                <div class="form-input-steps">
+                                                    <h4>Server installation</h4>
+                                                    <h3>Log Information</h3>
+                                                    <div class="form-group">
+                                                        <label>Select Log Type</label>
+                                                        <select class="form-control">
+                                                            <option value="default">Default</option>
+                                                            <option value="database">Database</option>
+                                                            <option value="file">File</option>
+                                                          </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Logger Time Zone</label>
+                                                        <select class="form-control" id="timezoneSelect">
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" name="" >
+                                                        <label class="form-check-label">Turn logger off</label>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline text-right">
+                                                    <li>
+                                                        <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="button" class="step-btn next-step" data-step="3"><span>Next</span><i class="fa fa-chevron-right"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-pane" role="tabpanel" id="step4">
+                                                <div class="form-input-steps">
+                                                    <h4>Server installation</h4>
+                                                    <h3>Admin Information</h3>
+                                                    <div class="form-group">
+                                                        <label>Full Name</label>
+                                                        <input type="text" class="form-control" name="" placeholder="Enter full name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="text" class="form-control" name="" placeholder="Enter email">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <input type="password" class="form-control" id="card-month-year" name="" placeholder="***********">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline text-right">
+                                                    <li>
+                                                        <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="button" class="step-btn next-step" data-step="4"><span>Finish</span><i class="fa fa-chevron-right"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+                                    <div class="wizard-inner">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation">
+                                                <a href="#step1" class="active" data-toggle="tab" aria-controls="step1" role="tab" aria-expanded="true" data-step="1">
+                                                    <span class="round-tab">1</span>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#step2" class="disabled" data-toggle="tab" aria-controls="step2" role="tab" aria-expanded="false" data-step="2">
+                                                    <span class="round-tab">2</span>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#step3" class="disabled" data-toggle="tab" aria-controls="step3" role="tab" data-step="3">
+                                                    <span class="round-tab">3</span>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#step4" class="disabled" data-toggle="tab" aria-controls="step4" role="tab" data-step="4"> 
+                                                   <span class="round-tab">4</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script  src="./script.js"></script>
+</body>
+</html>

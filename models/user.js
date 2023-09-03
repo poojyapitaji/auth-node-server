@@ -37,6 +37,5 @@ User.addScope('withPassword', {
     order: [['createdAt', 'DESC']]
 });
 
-User.sync();
 
 module.exports = User;
