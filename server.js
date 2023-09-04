@@ -21,6 +21,7 @@ if (!envExists || !installKey) {
     const controller = require('./controllers/install');
     app.use('/install', express.static(__dirname + '/install'));
     app.use('/install/checkdb', controller.checkDbConnection);
+    app.use('/install/checkSMTP', controller.checkSMTPConnection);
     app.get('*', function (req, res) {
         res.redirect('/install')
     })

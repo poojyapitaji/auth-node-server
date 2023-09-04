@@ -17,7 +17,6 @@ module.exports.register = async (req, res) => {
         to: req.body.email,
         subject: "Account Created 🤘",
         template: "user-register",
-        data: { email: req.body.email }
     })
 }
 

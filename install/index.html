@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <title>Install | Autn Node server</title>
   <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css'><link rel="stylesheet" href="./style.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css'>
+<link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="page-ath-wrap">
                     <div class="page-ath-content register-form-content">
                     <img class="page-logo" src="https://camo.githubusercontent.com/b89c972a4b1a1b50b01e83983effcc8151254174a625a0c8eab9324c0fc840c1/68747470733a2f2f692e6962622e636f2f354c4737446a312f6c6f676f2e706e67" alt="logo" />
@@ -54,7 +55,7 @@
                                                 </div>
                                                 <ul class="list-inline text-right">
                                                     <li>
-                                                        <button type="button" class="step-btn next-step" data-step="1"><span>Test connection</span><i class="fa fa-chevron-right"></i></button>
+                                                        <button type="button" class="step-btn next-step" data-step="1"><span>Test Database Connection</span> <i class="fas fa-database"></i></button>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -64,28 +65,31 @@
                                                     <h3>SMTP Information</h3>
                                                     <div class="form-group">
                                                         <label>SMTP Host</label>
-                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP host">
+                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP host" id="smtpHost">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>SMTP Port</label>
-                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP port number" value="465">
+                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP port number" value="465" id="smtpPort">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>SMTP Username</label>
-                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP username">
+                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP username" id="smtpUsername">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>SMTP Password</label>
-                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP password">
+                                                        <input type="text" class="form-control" name="" placeholder="Enter SMTP password" id="smtpPassword">
                                                     </div>
-                                                     
-                                                     
+                                                    <div class="form-group">
+                                                        <label>SMTP Test Email</label>
+                                                        <input type="email" class="form-control" name="" placeholder="Enter test email" id="smtpTestEmail">
+                                                    </div>
                                                 </div>
                                                 <ul class="list-inline text-right">
                                                     <li>
                                                         <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
                                                     </li>
                                                     <li>
+                                                        <button type="button" class="step-btn test-btn" data-step="2" id="smtp-test-btn"><span>Test SMTP Connection</span><i class="fas fa-envelope"></i></button>
                                                         <button type="button" class="step-btn next-step" data-step="2"><span>Next</span><i class="fa fa-chevron-right"></i></button>
                                                     </li>
                                                 </ul>
@@ -96,7 +100,7 @@
                                                     <h3>Log Information</h3>
                                                     <div class="form-group">
                                                         <label>Select Log Type</label>
-                                                        <select class="form-control">
+                                                        <select class="form-control" id="loggerType">
                                                             <option value="default">Default</option>
                                                             <option value="database">Database</option>
                                                             <option value="file">File</option>
@@ -108,7 +112,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input" name="" >
+                                                        <input type="checkbox" class="form-check-input" name="" id="loggerOff" >
                                                         <label class="form-check-label">Turn logger off</label>
                                                     </div>
                                                 </div>

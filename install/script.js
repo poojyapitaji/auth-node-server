@@ -39,13 +39,19 @@ $(document).ready(function () {
 
 
     $(".next-step").click(async function (e) {
-        await checkConfiguration(parseInt($(this)[0].getAttribute('data-step')))
+        if (parseInt($(this)[0].getAttribute('data-step')) === 2) {
+            movetoNext()
+        } else {
+            await checkConfiguration(parseInt($(this)[0].getAttribute('data-step')))
+        }
     });
 
     $(".prev-step").click(function (e) {
         var $active = $('.wizard .nav-tabs li a.active');
         prevTab($active);
     });
+
+    $('#smtp-test-btn').click(() => checkConfiguration(2))
 
     // populate timezone
     populateTimezones();
@@ -97,11 +103,11 @@ async function checkConfiguration(step) {
                         method: 'POST',
                         contentType: 'application/json', // Set the content type to JSON
                         data: JSON.stringify({
-                            dbHost: dbHost,
-                            dbPort: dbPort,
-                            dbName: dbName,
-                            dbUsername: dbUsername,
-                            dbPassword: dbPassword
+                            dbHost,
+                            dbPort,
+                            dbName,
+                            dbUsername,
+                            dbPassword
                         }),
                         success: function (result) {
                             Swal.hideLoading()
@@ -128,7 +134,59 @@ async function checkConfiguration(step) {
                 }
             })
             break;
+        case 2:
+            Swal.fire({
+                title: '',
+                text: 'Please wait while we test the SMTP connection using the provided configuration.',
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const smtpHost = $('#smtpHost').val()
+                    const smtpPort = $('#smtpPort').val()
+                    const smtpUsername = $('#smtpUsername').val()
+                    const smtpPassword = $('#smtpPassword').val()
+                    const smtpTestEmail = $('#smtpTestEmail').val()
+                    $.ajax({
+                        url: '/install/checkSMTP',
+                        method: 'POST',
+                        contentType: 'application/json', // Set the content type to JSON
+                        data: JSON.stringify({
+                            smtpHost,
+                            smtpPort,
+                            smtpUsername,
+                            smtpPassword,
+                            smtpTestEmail
+                        }),
+                        success: function (result) {
+                            Swal.hideLoading()
+                            Swal.fire({
+                                title: 'SMTP Passed',
+                                text: 'We are able to send a test email to ' + smtpTestEmail,
+                                icon: 'success',
+                                confirmButtonText: 'Go to Next Step'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    movetoNext()
+                                }
+                            })
+                        },
+                        error: function (xhr, status, error) {
+                            Swal.hideLoading()
+                            Swal.fire(
+                                'SMTP failed!',
+                                xhr?.responseJSON?.message,
+                                'error'
+                            )
+                        }
+                    });
+                }
+            })
+            break;
+        case 3:
+            movetoNext()
+            break;
         default:
+            movetoNext()
             break;
     }
 }

@@ -215,10 +215,26 @@ button:focus{
     background-color: #B39A62;
 }
 
+.test-btn {
+    background-color: #B39A62;
+    border: none;
+    margin-top: 30px;
+}
+
+.test-btn i {
+    color: #fff;
+}
+
+.test-btn span{
+    margin-right: 10px;
+    color: white;
+}
+
 .next-step span{
     margin-right: 10px;
     color: white;
 }
+
 .next-step i {
     color: #fff;
 }
